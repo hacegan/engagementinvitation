@@ -435,6 +435,41 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
     }
 }
 
+/* ====================== 
+   MOBILE DATE FIX 
+   ====================== */
+@media (max-width: 640px) {
+    .envelope-date {
+        bottom: 27% !important;     /* Daha yukarı aldık */
+    }
+    
+    .envelope-monogram {
+        top: 21% !important;        /* İsimler de biraz yukarı */
+    }
+}
+
+@media (max-width: 480px) {
+    .envelope-date {
+        bottom: 29% !important;
+    }
+    
+    .envelope-monogram {
+        top: 22.5% !important;
+    }
+    
+    .envelope-date span {
+        font-size: clamp(0.78rem, 3.6vw, 0.92rem) !important;
+        letter-spacing: 0.35em !important;
+    }
+}
+
+/* Seal'i mobilde daha rahat tıklanabilir hale getirme */
+@media (max-width: 640px) {
+    .seal-wrapper {
+        top: 47.5% !important;
+    }
+}
+
         /* =====================================================
            SECOND PAGE — UNTOUCHED
            ===================================================== */
@@ -611,7 +646,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sealWrapper = document.getElementById('sealWrapper');
     const sealFrags   = document.getElementById('sealFrags');
     const sealFlash   = document.getElementById('sealFlash');
-    const clickHint   = document.getElementById('clickHint');
     const dustCont    = document.getElementById('dustContainer');
     const botLayer    = document.getElementById('botanicalLayer');
     const envMonogram = document.getElementById('envMonogram');
@@ -749,8 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sealBroken) return;
         sealBroken = true;
 
-        clickHint.style.transition = 'opacity 0.3s ease';
-        clickHint.style.opacity    = '0';
+   
 
         // Play Sound
         playCrackSound();

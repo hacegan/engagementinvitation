@@ -62,7 +62,7 @@
         }
         .botanical-layer svg {
             position: absolute; opacity: 0;
-            transition: opacity 1.5s ease;
+            transition: opacity 0.5s ease;
         }
         .botanical-layer svg.visible { opacity: 0.35; } 
 
@@ -91,8 +91,8 @@
             opacity: 0;
             transform: translateY(40px) scale(1.02);
             filter: drop-shadow(0 30px 60px var(--shadow-direct));
-            transition: opacity 1.2s cubic-bezier(0.2, 0, 0.05, 1),
-                        transform 1.2s cubic-bezier(0.2, 0, 0.05, 1);
+            transition: opacity 0.6s cubic-bezier(0.2, 0, 0.05, 1),
+                        transform 0.6s cubic-bezier(0.2, 0, 0.05, 1);
 						will-change: transform, opacity;
         }
         .envelope-wrapper.assemble {
@@ -294,7 +294,7 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
 
         /* ── SCENE EXIT (Seamless cinematic transition) ── */
         .envelope-wrapper.exit-out {
-    animation: envExit 1.2s cubic-bezier(0.55, 0, 1, 1) forwards; /* 3s → 1.2s */
+    animation: envExit 0.7s cubic-bezier(0.55, 0, 1, 1) forwards; /* 3s → 1.2s */
 }
        @keyframes envExit {
     0%   { transform: translateY(0) scale(1); opacity: 1; }

@@ -62,7 +62,7 @@
         }
         .botanical-layer svg {
             position: absolute; opacity: 0;
-            transition: opacity 3s ease;
+            transition: opacity 1.5s ease;
         }
         .botanical-layer svg.visible { opacity: 0.35; } 
 
@@ -91,8 +91,8 @@
             opacity: 0;
             transform: translateY(40px) scale(1.02);
             filter: drop-shadow(0 30px 60px var(--shadow-direct));
-            transition: opacity 2s cubic-bezier(0.2, 0, 0.05, 1),
-                        transform 2s cubic-bezier(0.2, 0, 0.05, 1);
+            transition: opacity 1.2s cubic-bezier(0.2, 0, 0.05, 1),
+                        transform 1.2s cubic-bezier(0.2, 0, 0.05, 1);
 						will-change: transform, opacity;
         }
         .envelope-wrapper.assemble {
@@ -294,12 +294,12 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
 
         /* ── SCENE EXIT (Seamless cinematic transition) ── */
         .envelope-wrapper.exit-out {
-            animation: envExit 3s cubic-bezier(0.4, 0, 0.1, 1) forwards;
-        }
+    animation: envExit 1.2s cubic-bezier(0.55, 0, 1, 1) forwards; /* 3s → 1.2s */
+}
        @keyframes envExit {
-    0%   { transform: translateY(0) scale(1) translateZ(0); opacity: 1; }
-    15%  { transform: translateY(4vh) scale(0.98) translateZ(0); opacity: 1; } 
-    100% { transform: translateY(-120vh) scale(0.9) translateZ(0); opacity: 0; }
+    0%   { transform: translateY(0) scale(1); opacity: 1; }
+    10%  { transform: translateY(2vh) scale(0.99); opacity: 1; }
+    100% { transform: translateY(-110vh) scale(0.88); opacity: 0; }
 }
 
         .seal-break-flash {
@@ -777,26 +777,18 @@ document.addEventListener('DOMContentLoaded', () => {
         bgMusic.play().then(() => { isMusicPlaying = true; }).catch(() => {});
 
         // 6. Flap Opens smoothly like a real hand
-        setTimeout(() => {
-            envelopeObj.classList.add('open-flap');
-            envelopeObj.style.transition = 'transform 2.5s cubic-bezier(0.4, 0.0, 0.2, 1)';
-            envelopeObj.style.transform = 'scale(1)'; 
-        }, 1100); 
-
-        // 7. Envelope pulls away
-        setTimeout(() => {
-            envelopeObj.classList.add('exit-out');
-            botLayer.style.transition = 'opacity 2.5s ease, transform 3s ease';
-            botLayer.style.opacity = '0';
-            botLayer.style.transform = 'scale(1.1)'; 
-        }, 3400); 
-
-        // 8. Reveal Page 2
-        setTimeout(() => {
-            intro.classList.add('hidden');
-            mainContent.classList.add('vis');
-            musicBtn.classList.add('visible');
-        }, 4800);
+       setTimeout(() => envelopeObj.classList.add('open-flap'), 600);    /* 1100 → 600 */
+setTimeout(() => {
+    envelopeObj.classList.add('exit-out');
+    botLayer.style.transition = 'opacity 1s ease, transform 1.2s ease';  /* hız artışı */
+    botLayer.style.opacity = '0';
+    botLayer.style.transform = 'scale(1.08)';
+}, 1400);                                                            /* 3400 → 1400 */
+setTimeout(() => {
+    intro.classList.add('hidden');
+    mainContent.classList.add('vis');
+    musicBtn.classList.add('visible');
+}, 2400);     
     }
 
     sealImage.addEventListener('click', breakSeal);

@@ -404,44 +404,69 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
         .fade-up { opacity:0;transform:translateY(20px);transition:opacity 1s,transform 1s; }
         .fade-up.visible { opacity:1;transform:translateY(0); }
 		
-		/* ── NOKTA ATIŞI MOBİL ZARF & MÜHÜR FIX ── */
+/* ── TAMAMEN SORUNSUZ NOKTA ATIŞI MOBİL FIX ── */
 @media screen and (max-width: 768px) {
-    /* Zarfın genel ekrana oturma oranını ve konumunu mobilde yukarı taşıyıp büyütüyoruz */
+    /* Zarfın ana kutusu */
     .envelope-wrapper {
-        inset: 5vh 2vw !important;
+        inset: 6vh 2vw !important;
         transform: translateY(0) scale(1.15) !important;
     }
     .envelope-wrapper.assemble {
         transform: translateY(0) scale(1.15) !important;
     }
 
-    /* İsimlerin mobilde çok küçük kalmasını engellemek için taban fontu büyütüyoruz */
+    /* ÜST YAZI: Samet & Melike Alanı */
+    .envelope-monogram {
+        width: 100% !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        top: 14% !important; /* Mühürden uzaklaştırıp yukarı aldık, alan açtık */
+    }
+    
     .envelope-monogram .mono-names {
-        font-size: clamp(3.5rem, 14vw, 4.5rem) !important;
+        /* Yazı boyutunu zarfa tam sığacak ama büyük duracak şekilde optimize ettik */
+        font-size: clamp(2.3rem, 10.5vw, 2.8rem) !important; 
+        white-space: nowrap !important;
+        display: block !important;
+        width: 100% !important;
     }
 
-    /* Tarih yazısının okunabilirliğini artırıyoruz */
+    /* ALT YAZI: Tarih ve Çeşme Alanı */
+    .envelope-date {
+        width: 100% !important;
+        right: 0 !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+        bottom: 18% !important; /* Büyük mühürle çakışmaması için biraz daha aşağı çektik */
+    }
+    
     .envelope-date span {
-        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
-        letter-spacing: 0.35em !important;
+        /* İstediğin gibi yazıyı tekrar büyüterek okunaklı yaptık */
+        font-size: clamp(1.05rem, 3.8vw, 1.2rem) !important; 
+        letter-spacing: 0.18em !important; /* Harf arası boşluğu sığacak şekilde optimize ettik */
+        white-space: nowrap !important;
+        display: block !important;
     }
 
-    /* Mührün mobilde minicik kalmasını önlemek için wrapper ve mühür boyutunu zorunlu olarak setliyoruz */
+    /* MÜHÜR: İstediğin gibi yeniden BÜYÜK ve tam ortalı */
     .seal-wrapper {
-        top: 48.5% !important; /* Katlanma çizgisine tam oturması için hafif ayar */
-        transform: translate(-55%, -50%) scale(1.3) !important;
+        top: 48.5% !important;
+        left: 50% !important;
+        /* absolute ortalamayı bozmadan büyük ölçek (scale 1.35) uyguladık */
+        transform: translate(-50%, -50%) scale(1.35) !important; 
     }
     .seal-wrapper.visible {
-        transform: translate(-55%, -50%) scale(1.3) !important;
+        transform: translate(-50%, -50%) scale(1.35) !important;
     }
 
-    /* Mührün CSS boyutlarını mobil ekrana göre optimize ediyoruz */
+    /* Mührün fiziksel boyutları */
     .css-seal {
         width: 140px !important;
         height: 140px !important;
     }
     
-    /* Mührün arkasındaki parlama efektini mühür boyutuna çekiyoruz */
+    /* Mühür arkasındaki parlama efekti */
     .seal-glow {
         width: 200px !important;
         height: 200px !important;

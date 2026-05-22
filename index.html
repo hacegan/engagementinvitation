@@ -403,6 +403,50 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
         footer { padding:3rem;text-align:center;font-size:0.7rem;letter-spacing:0.3em;color:#ccc;text-transform:uppercase; }
         .fade-up { opacity:0;transform:translateY(20px);transition:opacity 1s,transform 1s; }
         .fade-up.visible { opacity:1;transform:translateY(0); }
+		
+		/* ── NOKTA ATIŞI MOBİL ZARF & MÜHÜR FIX ── */
+@media screen and (max-width: 768px) {
+    /* Zarfın genel ekrana oturma oranını ve konumunu mobilde yukarı taşıyıp büyütüyoruz */
+    .envelope-wrapper {
+        inset: 5vh 2vw !important;
+        transform: translateY(0) scale(1.15) !important;
+    }
+    .envelope-wrapper.assemble {
+        transform: translateY(0) scale(1.15) !important;
+    }
+
+    /* İsimlerin mobilde çok küçük kalmasını engellemek için taban fontu büyütüyoruz */
+    .envelope-monogram .mono-names {
+        font-size: clamp(3.5rem, 14vw, 4.5rem) !important;
+    }
+
+    /* Tarih yazısının okunabilirliğini artırıyoruz */
+    .envelope-date span {
+        font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+        letter-spacing: 0.35em !important;
+    }
+
+    /* Mührün mobilde minicik kalmasını önlemek için wrapper ve mühür boyutunu zorunlu olarak setliyoruz */
+    .seal-wrapper {
+        top: 48.5% !important; /* Katlanma çizgisine tam oturması için hafif ayar */
+        transform: translate(-55%, -50%) scale(1.3) !important;
+    }
+    .seal-wrapper.visible {
+        transform: translate(-55%, -50%) scale(1.3) !important;
+    }
+
+    /* Mührün CSS boyutlarını mobil ekrana göre optimize ediyoruz */
+    .css-seal {
+        width: 140px !important;
+        height: 140px !important;
+    }
+    
+    /* Mührün arkasındaki parlama efektini mühür boyutuna çekiyoruz */
+    .seal-glow {
+        width: 200px !important;
+        height: 200px !important;
+    }
+}
     </style>
 </head>
 <body>

@@ -557,7 +557,7 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
         <div class="info-grid">
             <div class="info-card fade-up">
                 <svg class="info-icon" viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 7h-2v6h6v-2h-4z"/></svg>
-                <div class="info-title">Zaman</div><div class="info-desc">Akşam 19:00</div>
+                <div class="info-title">Zaman</div><div class="info-desc">Akşam 20:00</div>
                 <div class="info-sub">Karşılama ve yüzük merasimi.</div>
             </div>
             <div class="info-card fade-up">
@@ -572,7 +572,7 @@ background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAp0AAAF1CAY
         </div>
     </section>
     <section class="countdown-section">
-        <div class="pre-title fade-up" style="margin-bottom:0;">Heyecanla Bekliyoruz</div>
+        <div class="pre-title fade-up" style="margin-bottom:0;">Sizide Aramızda Görmekten Mutluluk Duyarız</div>
         <div class="cd-wrapper fade-up">
             <div class="cd-item"><span class="cd-number" id="days">00</span><span class="cd-label">Gün</span></div>
             <div class="cd-item"><span class="cd-number" id="hours">00</span><span class="cd-label">Saat</span></div>
@@ -885,7 +885,7 @@ setTimeout(() => {
     document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
     /* ── COUNTDOWN ── */
-    const target = new Date("June 30, 2026 19:00:00").getTime();
+    const target = new Date("June 30, 2026 20:00:00").getTime();
     const tick = () => {
         const d = target - Date.now();
         if (d < 0) return;
